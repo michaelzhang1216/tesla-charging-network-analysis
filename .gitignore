@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# External OCM data
+data/external/
+data/raw/
+data/database/
