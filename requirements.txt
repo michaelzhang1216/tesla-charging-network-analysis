@@ -1,0 +1,9 @@
+pandas
+numpy
+requests
+sqlalchemy
+python-dotenv
+jupyter
+beautifulsoup4
+lxml
+openpyxl
