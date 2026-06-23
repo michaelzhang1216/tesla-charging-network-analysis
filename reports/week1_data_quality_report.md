@@ -18,9 +18,67 @@ This report summarizes the initial data quality assessment for the raw datasets 
 | world_bank_population_raw | 17191 | 41 | 0 |
 | world_bank_road_density_raw | 1103 | 38 | 0 |
 
-## 3. Table-Level Quality Checks
+## 3. Visual Summary
 
-### 3.x iea_ev_data_explorer_2026_raw
+The following figures provide a quick visual summary of dataset size, duplication, field coverage, and missing-value patterns.
+
+### Figure 1. Row Counts by Raw Data Table
+
+This figure compares the number of records across all raw tables. It helps identify which data sources contribute the largest amount of data.
+
+![Figure 1. Row Counts by Raw Data Table](figures/table_row_counts.png)
+
+### Figure 2. Duplicate Rows by Raw Data Table
+
+This figure shows the number of fully duplicated rows in each raw table. Tables with duplicate rows will need further review during Week 2 cleaning.
+
+![Figure 2. Duplicate Rows by Raw Data Table](figures/table_duplicate_counts.png)
+
+### Figure 3. Column Counts by Raw Data Table
+
+This figure compares the number of fields available in each raw table. Tables with more columns may require more careful field selection and standardization.
+
+![Figure 3. Column Counts by Raw Data Table](figures/table_column_counts.png)
+
+### Missing Values: iea_ev_data_explorer_2026_raw
+
+This figure shows the top fields with the highest missing-value rates in `iea_ev_data_explorer_2026_raw`.
+
+![Missing Values: iea_ev_data_explorer_2026_raw](figures/iea_top_missing.png)
+
+### Missing Values: kaggle_global_ev_charging_station_raw
+
+This figure shows the top fields with the highest missing-value rates in `kaggle_global_ev_charging_station_raw`.
+
+![Missing Values: kaggle_global_ev_charging_station_raw](figures/kaggle_top_missing.png)
+
+### Missing Values: openchargemap_charging_stations_sample
+
+This figure shows the top fields with the highest missing-value rates in `openchargemap_charging_stations_sample`.
+
+![Missing Values: openchargemap_charging_stations_sample](figures/ocm_top_missing.png)
+
+### Missing Values: us_alt_fuel_stations_historical_raw
+
+This figure shows the top fields with the highest missing-value rates in `us_alt_fuel_stations_historical_raw`.
+
+![Missing Values: us_alt_fuel_stations_historical_raw](figures/us_alt_fuel_top_missing.png)
+
+### Missing Values: world_bank_gdp_country_raw
+
+This figure shows the top fields with the highest missing-value rates in `world_bank_gdp_country_raw`.
+
+![Missing Values: world_bank_gdp_country_raw](figures/world_bank_gdp_top_missing.png)
+
+### Missing Values: world_bank_income_level_country_raw
+
+This figure shows the top fields with the highest missing-value rates in `world_bank_income_level_country_raw`.
+
+![Missing Values: world_bank_income_level_country_raw](figures/world_bank_income_top_missing.png)
+
+## 4. Table-Level Quality Checks
+
+### 4.1 iea_ev_data_explorer_2026_raw
 
 - Rows: 49176
 - Columns: 9
@@ -29,6 +87,10 @@ This report summarizes the initial data quality assessment for the raw datasets 
 **Column names:**
 
 region_country, category, parameter, mode, powertrain, year, unit, value, aggregate_group
+
+**Key field check:**
+
+- All predefined key fields are present.
 
 **Top missing-value fields:**
 
@@ -44,7 +106,7 @@ region_country, category, parameter, mode, powertrain, year, unit, value, aggreg
 | value | 0 | 0.0 |
 | aggregate_group | 0 | 0.0 |
 
-### 3.x kaggle_global_ev_charging_station_raw
+### 4.2 kaggle_global_ev_charging_station_raw
 
 - Rows: 257585
 - Columns: 19
@@ -53,6 +115,10 @@ region_country, category, parameter, mode, powertrain, year, unit, value, aggreg
 **Column names:**
 
 stationid, uuid, dataproviderid, operator, usagetype, usagecost, addresstitle, addressline1, town, stateorprovince, postcode, country, latitude, longitude, maxpowerkw, fastchargecount, connectiontypes, statustype, yearcreated
+
+**Key field check:**
+
+- All predefined key fields are present.
 
 **Top missing-value fields:**
 
@@ -69,7 +135,7 @@ stationid, uuid, dataproviderid, operator, usagetype, usagecost, addresstitle, a
 | addressline1 | 1817 | 0.71 |
 | addresstitle | 5 | 0.0 |
 
-### 3.x openchargemap_charging_stations_sample
+### 4.3 openchargemap_charging_stations_sample
 
 - Rows: 133026
 - Columns: 17
@@ -78,6 +144,10 @@ stationid, uuid, dataproviderid, operator, usagetype, usagecost, addresstitle, a
 **Column names:**
 
 id, uuid, station_title, operator, usage_type, status, country, iso_code, state_or_province, town, address_line_1, postcode, latitude, longitude, number_of_connections, date_created, date_last_verified
+
+**Key field check:**
+
+- All predefined key fields are present.
 
 **Top missing-value fields:**
 
@@ -94,7 +164,7 @@ id, uuid, station_title, operator, usage_type, status, country, iso_code, state_
 | id | 0 | 0.0 |
 | iso_code | 0 | 0.0 |
 
-### 3.x tesla_deliveries_2015_2025_raw
+### 4.4 tesla_deliveries_2015_2025_raw
 
 - Rows: 2640
 - Columns: 12
@@ -103,6 +173,10 @@ id, uuid, station_title, operator, usage_type, status, country, iso_code, state_
 **Column names:**
 
 year, month, region, model, estimated_deliveries, production_units, avg_price_usd, battery_capacity_kwh, range_km, co2_saved_tons, source_type, charging_stations
+
+**Key field check:**
+
+- All predefined key fields are present.
 
 **Top missing-value fields:**
 
@@ -119,7 +193,7 @@ year, month, region, model, estimated_deliveries, production_units, avg_price_us
 | range_km | 0 | 0.0 |
 | co2_saved_tons | 0 | 0.0 |
 
-### 3.x us_alt_fuel_stations_historical_raw
+### 4.5 us_alt_fuel_stations_historical_raw
 
 - Rows: 95300
 - Columns: 75
@@ -148,7 +222,7 @@ fuel_type_code, station_name, street_address, intersection_directions, city, sta
 | ng_psi | 95300 | 100.0 |
 | ng_fill_type_code | 95300 | 100.0 |
 
-### 3.x world_bank_gdp_country_raw
+### 4.6 world_bank_gdp_country_raw
 
 - Rows: 266
 - Columns: 71
@@ -177,7 +251,7 @@ country_name, country_code, indicator_name, indicator_code, 1960, 1961, 1962, 19
 | 1966 | 103 | 38.72 |
 | 1967 | 99 | 37.22 |
 
-### 3.x world_bank_income_level_country_raw
+### 4.7 world_bank_income_level_country_raw
 
 - Rows: 265
 - Columns: 6
@@ -202,7 +276,7 @@ country_code, region, incomegroup, specialnotes, tablename, unnamed:_5
 | country_code | 0 | 0.0 |
 | tablename | 0 | 0.0 |
 
-### 3.x world_bank_population_raw
+### 4.8 world_bank_population_raw
 
 - Rows: 17191
 - Columns: 41
@@ -231,7 +305,7 @@ datastructure, wb_data360:ds_data3601_3, i, a, vnm, wb_wdi_sp_pop_totl, _t, _t_1
 | _t_2 | 0 | 0.0 |
 | ps | 0 | 0.0 |
 
-### 3.x world_bank_road_density_raw
+### 4.9 world_bank_road_density_raw
 
 - Rows: 1103
 - Columns: 38
@@ -256,18 +330,19 @@ datastructure, wb_data360:ds_data3601_2, i, a, annual, alb, albania, wef_ttdi_ro
 | albania | 0 | 0.0 |
 | wef_ttdi_roaddens | 0 | 0.0 |
 
-## 4. Initial Findings
+## 5. Initial Findings
 
 - Multiple raw data sources have been successfully collected and loaded into the SQLite database.
 - Charging station datasets contain useful geographic fields such as latitude and longitude, which will support spatial analysis in later stages.
-- Some datasets contain missing values in operator, usage type, status, or metadata fields. These fields should be reviewed during Week 2 data cleaning.
-- World Bank datasets may have different structures depending on the indicator source. Some files may require reshaping from wide format to long country-year format.
-- Dataset merging should not be performed in Week 1. Standardization, deduplication, and integration should be conducted in Week 2.
+- Some datasets contain missing values in operator, usage type, status, pricing, or metadata fields. These fields should be reviewed during Week 2 data cleaning.
+- Some World Bank datasets have different structures depending on the indicator source. These files may require reshaping into a consistent country-year format.
+- A small number of duplicate rows exist in selected raw tables. Duplicate station checks should use station name, operator, address, latitude, and longitude instead of exact-row matching only.
+- Dataset merging should not be performed before standardization. Standardization, deduplication, and integration should be conducted in Week 2.
 
-## 5. Next Steps
+## 6. Next Steps
 
 - Standardize country names and country codes across charging station, EV sales, and external factor datasets.
-- Convert World Bank yearly wide-format data into long format for country-year analysis.
+- Convert World Bank data into a more consistent country-year format when needed.
 - Identify Tesla-related charging stations from broader charging station datasets.
-- Check duplicate stations using station name, operator, address, latitude, and longitude.
+- Check duplicate charging stations using station name, operator, address, latitude, and longitude.
 - Build a cleaned dataset for exploratory data analysis in Week 2.
